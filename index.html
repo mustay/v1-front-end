@@ -46,6 +46,7 @@
 					</div>
 					<div class="comment__actions">
 						<div>
+							<span class="upvote-text">${f.upvotes}</span>
 							<button class="comment__button" onclick="upvoteComment('${f.id}')">&#9650; Upvote</button>
 							<button class="comment__button">Reply</button>
 						</div>
@@ -58,7 +59,7 @@
 			}
 
 			function getComments() {
-				fetch("http://localhost:3000/comments")
+				fetch("http://137.184.110.104/comments")
 					.then(function (response) {
 						return response.json();
 					})
@@ -72,20 +73,19 @@
 
 			function postComment() {
 				const text = document.getElementById('input');
-				fetch('http://localhost:3000/comments', {
+				fetch('http://137.184.110.104/comments', {
 					method: 'POST',
 					mode: 'cors',
 					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify({text: text.value})
 				}).then(f => {
-					console.log(f);
 					text.value = "";
 					location.reload();
 				})
 			}
 
 			function upvoteComment(id) {
-				fetch('http://localhost:3000/comments', {
+				fetch('http://137.184.110.104/comments', {
 					method: 'PATCH',
 					mode: 'cors',
 					headers: { 'Content-Type': 'application/json' },

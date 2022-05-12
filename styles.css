@@ -10,6 +10,9 @@ html {
 	overflow:hidden;
 }
 
+.upvote-text {
+	font-size: 12px;
+}
 
 .body-wrapper {
 	width: 100%;
